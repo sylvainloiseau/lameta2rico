@@ -1,0 +1,411 @@
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix ric-rst: <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mydata: <http://tuwari.huma-num.fr/corpus/tuwari/> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/language/tww> a rico:Language;
+  rico:identifier "tww";
+  rico:name "Tuwari" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/language/en> a rico:Language;
+  rico:identifier "en";
+  rico:name "English" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/project/Test/People> a rico:RecordSet;
+  rico:includesOrIncluded <http://tuwari.huma-num.fr/corpus/tuwari/person/John%20Doe/documents>,
+    <http://tuwari.huma-num.fr/corpus/tuwari/person/Joshua%20Kelekele/documents>, <http://tuwari.huma-num.fr/corpus/tuwari/person/Wilema%20Doe/documents>;
+  rico:hasRecordSetType ric-rst:Series;
+  rico:title "People" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/person/John%20Doe/documents> a rico:RecordSet;
+  rico:hasRecordSetType ric-rst:File;
+  rico:title "John Doe";
+  rico:hasOrHadMainSubject <http://tuwari.huma-num.fr/corpus/tuwari/person/JD>;
+  rico:includesOrIncluded <http://tuwari.huma-num.fr/corpus/tuwari/person/John%20Doe/documents/record/John%20Doe_Consent.txt> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/person/JD> a rico:Person;
+  rico:name "John Doe";
+  rico:hasOrHadAgentName <http://tuwari.huma-num.fr/corpus/tuwari/person/JD/name/nickname>;
+  rico:identifier "JD";
+  rico:hasOrHadLanguage <http://tuwari.huma-num.fr/corpus/tuwari/language/tww>, <http://tuwari.huma-num.fr/corpus/tuwari/language/tpi>,
+    <http://tuwari.huma-num.fr/corpus/tuwari/language/en>;
+  rico:birthDate "1977"^^xsd:gYear;
+  rico:hasOrHadDemographicGroup <http://tuwari.huma-num.fr/corpus/tuwari/demographicGroup/gender/Male>,
+    <http://tuwari.huma-num.fr/corpus/tuwari/demographicGroup/ethnicGroup/EthnicGroup>;
+  rico:hasOrHadOccupationOfType <http://tuwari.huma-num.fr/corpus/tuwari/occupationType/PrimaryOccupation>;
+  rico:generalDescription "Description", "CustomField1: CustomField1Value", "Primary language learned in: father and mother primary language, as stated",
+    "Fathers language: en", "Mothers language: tpi", "Education: Formation";
+  skos:note "Notes" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/person/JD/name/nickname> a rico:AgentName;
+  rico:textualValue "John" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/language/tpi> a rico:Language;
+  rico:identifier "tpi" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/demographicGroup/gender/Male> a rico:DemographicGroup;
+  rico:name "Male" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/demographicGroup/ethnicGroup/EthnicGroup>
+  a rico:DemographicGroup;
+  rico:name "EthnicGroup" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/occupationType/PrimaryOccupation> a rico:OccupationType;
+  rico:name "PrimaryOccupation" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/person/John%20Doe/documents/record/John%20Doe_Consent.txt>
+  a rico:Record;
+  rico:title "John Doe_Consent.txt";
+  rico:hasOrHadDigitalInstantiation <http://tuwari.huma-num.fr/corpus/tuwari/person/John%20Doe/documents/instantiation/John%20Doe_Consent.txt>;
+  rico:hasDocumentaryFormType <http://tuwari.huma-num.fr/corpus/tuwari/documentaryFormType/Consent>;
+  skos:note "Notes";
+  rico:hasCreator <http://tuwari.huma-num.fr/corpus/tuwari/person/JD>;
+  rico:generalDescription "CustomField1: CustomField1Value" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/person/John%20Doe/documents/instantiation/John%20Doe_Consent.txt>
+  a rico:Instantiation;
+  rico:title "John Doe_Consent.txt";
+  rico:identifier "People/John Doe/John Doe_Consent.txt";
+  rico:isOrWasDigitalInstantiationOf <http://tuwari.huma-num.fr/corpus/tuwari/person/John%20Doe/documents/record/John%20Doe_Consent.txt> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/documentaryFormType/Consent> a rico:DocumentaryFormType;
+  rico:name "Consent" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/person/John%20Doe/documents/record/John%20Doe_Consent.txt/creation/1>
+  a rico:CreationRelation;
+  rico:relationHasSource <http://tuwari.huma-num.fr/corpus/tuwari/person/John%20Doe/documents/record/John%20Doe_Consent.txt>;
+  rico:relationHasTarget <http://tuwari.huma-num.fr/corpus/tuwari/person/JD>;
+  rico:creationWithRole <http://tuwari.huma-num.fr/corpus/tuwari/roleType/author>;
+  rico:generalDescription "G" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/roleType/author> a rico:RoleType;
+  rico:name "author" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/person/Joshua%20Kelekele/documents> a rico:RecordSet;
+  rico:hasRecordSetType ric-rst:File;
+  rico:title "Joshua Kelekele";
+  rico:hasOrHadMainSubject <http://tuwari.huma-num.fr/corpus/tuwari/person/JK> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/person/JK> a rico:Person;
+  rico:name "Joshua Kelekele";
+  rico:identifier "JK";
+  rico:hasOrHadLanguage <http://tuwari.huma-num.fr/corpus/tuwari/language/tww>;
+  rico:birthDate "1950"^^xsd:gYear;
+  rico:hasOrHadDemographicGroup <http://tuwari.huma-num.fr/corpus/tuwari/demographicGroup/gender/Male>;
+  rico:hasOrHadOccupationOfType <http://tuwari.huma-num.fr/corpus/tuwari/occupationType/Farmer>;
+  skos:note "Father of six." .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/occupationType/Farmer> a rico:OccupationType;
+  rico:name "Farmer" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/person/Wilema%20Doe/documents> a rico:RecordSet;
+  rico:hasRecordSetType ric-rst:File;
+  rico:title "Wilema Doe";
+  rico:hasOrHadMainSubject <http://tuwari.huma-num.fr/corpus/tuwari/person/WD> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/person/WD> a rico:Person;
+  rico:name "Wilema Doe";
+  rico:hasOrHadAgentName <http://tuwari.huma-num.fr/corpus/tuwari/person/WD/name/nickname>;
+  rico:identifier "WD" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/person/WD/name/nickname> a rico:AgentName;
+  rico:textualValue "Wily" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/project/Test> a rico:RecordSet;
+  rico:hasRecordSetType ric-rst:Fonds;
+  rico:title "Test";
+  rico:scopeAndContent "Description";
+  rico:hasOrHadSomeMembersWithLanguage <http://tuwari.huma-num.fr/corpus/tuwari/language/tww>,
+    <http://tuwari.huma-num.fr/corpus/tuwari/language/en>;
+  rico:isAssociatedWithPlace <http://tuwari.huma-num.fr/corpus/tuwari/place/emplacement%2FAdresse>;
+  rico:resultsOrResultedFrom <http://tuwari.huma-num.fr/corpus/tuwari/activity/funding/GrandID>;
+  rico:isOrWasRegulatedBy <http://tuwari.huma-num.fr/corpus/tuwari/rule/accessProtocol/PARADISEC>;
+  rico:hasAccumulator <http://tuwari.huma-num.fr/corpus/tuwari/agent/D%C3%A9posant>;
+  rico:hasOrHadManager <http://tuwari.huma-num.fr/corpus/tuwari/agent/contact%20Person>;
+  rico:publicationDate "2021-09-09"^^xsd:date;
+  rico:includesOrIncluded <http://tuwari.huma-num.fr/corpus/tuwari/project/Test/Sessions>,
+    <http://tuwari.huma-num.fr/corpus/tuwari/project/Test/People>, <http://tuwari.huma-num.fr/corpus/tuwari/project/Test/DescriptionDocuments>,
+    <http://tuwari.huma-num.fr/corpus/tuwari/project/Test/OtherDocuments> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/place/emplacement%2FAdresse> a rico:Place;
+  rico:name "emplacement/Adresse";
+  rico:location "emplacement/Adresse";
+  rico:isOrWasPartOf <http://tuwari.huma-num.fr/corpus/tuwari/place/Region> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/place/Region> a rico:Place;
+  rico:name "Region";
+  rico:isOrWasPartOf <http://tuwari.huma-num.fr/corpus/tuwari/place/Papua%20New%20Guinea> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/place/Papua%20New%20Guinea> a rico:Place;
+  rico:name "Papua New Guinea";
+  rico:isOrWasPartOf <http://tuwari.huma-num.fr/corpus/tuwari/place/Oceania> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/place/Oceania> a rico:Place;
+  rico:name "Oceania" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/activity/funding/GrandID> a rico:Activity;
+  rico:name "FundingProjectTitle";
+  rico:identifier "GrandID" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/rule/accessProtocol/PARADISEC> a rico:Rule;
+  rico:name "PARADISEC" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/agent/D%C3%A9posant> a rico:Agent;
+  rico:name "Déposant" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/agent/contact%20Person> a rico:Agent;
+  rico:name "contact Person" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/project/Test/Sessions> a rico:RecordSet;
+  rico:hasRecordSetType ric-rst:Series;
+  rico:title "Sessions";
+  rico:includesOrIncluded <http://tuwari.huma-num.fr/corpus/tuwari/session/Session1_ID>,
+    <http://tuwari.huma-num.fr/corpus/tuwari/session/Session2_ID>, <http://tuwari.huma-num.fr/corpus/tuwari/session/Session4>,
+    <http://tuwari.huma-num.fr/corpus/tuwari/session/SessionID3> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/project/Test/DescriptionDocuments> a rico:RecordSet;
+  rico:hasRecordSetType ric-rst:Series;
+  rico:title "DescriptionDocuments";
+  rico:includesOrIncluded <http://tuwari.huma-num.fr/corpus/tuwari/project/Test/DescriptionDocuments/record/idees.txt> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/project/Test/DescriptionDocuments/record/idees.txt>
+  a rico:Record;
+  rico:title "idees.txt";
+  rico:hasOrHadDigitalInstantiation <http://tuwari.huma-num.fr/corpus/tuwari/project/Test/DescriptionDocuments/instantiation/idees.txt>;
+  rico:describesOrDescribed <http://tuwari.huma-num.fr/corpus/tuwari/project/Test> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/project/Test/DescriptionDocuments/instantiation/idees.txt>
+  a rico:Instantiation;
+  rico:title "idees.txt";
+  rico:identifier "DescriptionDocuments/idees.txt";
+  rico:isOrWasDigitalInstantiationOf <http://tuwari.huma-num.fr/corpus/tuwari/project/Test/DescriptionDocuments/record/idees.txt> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/project/Test/OtherDocuments> a rico:RecordSet;
+  rico:hasRecordSetType ric-rst:Series;
+  rico:title "OtherDocuments";
+  rico:includesOrIncluded <http://tuwari.huma-num.fr/corpus/tuwari/project/Test/OtherDocuments/record/idees.txt> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/project/Test/OtherDocuments/record/idees.txt>
+  a rico:Record;
+  rico:title "idees.txt";
+  rico:hasOrHadDigitalInstantiation <http://tuwari.huma-num.fr/corpus/tuwari/project/Test/OtherDocuments/instantiation/idees.txt> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/project/Test/OtherDocuments/instantiation/idees.txt>
+  a rico:Instantiation;
+  rico:title "idees.txt";
+  rico:identifier "OtherDocuments/idees.txt";
+  rico:isOrWasDigitalInstantiationOf <http://tuwari.huma-num.fr/corpus/tuwari/project/Test/OtherDocuments/record/idees.txt> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/session/Session1_ID> a rico:RecordSet;
+  rico:hasRecordSetType ric-rst:File;
+  rico:documents <http://tuwari.huma-num.fr/corpus/tuwari/session/Session1_ID/activity>;
+  rico:identifier "Session1_ID";
+  rico:title "Session 1 Title";
+  rico:hasOrHadSomeMembersWithLanguage <http://tuwari.huma-num.fr/corpus/tuwari/language/tww>,
+    <http://tuwari.huma-num.fr/corpus/tuwari/language/en>;
+  rico:isOrWasRegulatedBy <http://tuwari.huma-num.fr/corpus/tuwari/rule/access/O>;
+  rico:conditionsOfAccess "open";
+  rico:scopeAndContent "Session 1 Description";
+  rico:hasOrHadAllMembersWithRecordState <http://tuwari.huma-num.fr/corpus/tuwari/recordState/In_Progress>;
+  rico:creationDate "2021-09-09"^^xsd:date;
+  rico:hasOrHadSubject <http://tuwari.huma-num.fr/corpus/tuwari/concept/keyword/Keyword1>,
+    <http://tuwari.huma-num.fr/corpus/tuwari/concept/keyword/keyword2>;
+  rico:hasOrHadMainSubject <http://tuwari.huma-num.fr/corpus/tuwari/concept/topic/Topic>;
+  skos:note "Notes";
+  rico:generalDescription "CustomField1: CustomField1Value", "CustomFieldB: CustomFieldBValue";
+  rico:includesOrIncluded <http://tuwari.huma-num.fr/corpus/tuwari/session/Session1_ID/record/131123_03_Source.WAV> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/session/Session1_ID/activity> a rico:Activity;
+  rico:identifier "Session1_ID";
+  rico:name "Session 1 Title";
+  rico:hasActivityType <http://tuwari.huma-num.fr/corpus/tuwari/activityType/genre/singing>,
+    <http://tuwari.huma-num.fr/corpus/tuwari/activityType/subGenre/Chant%20solo>, <http://tuwari.huma-num.fr/corpus/tuwari/activityType/involvement/elicited>,
+    <http://tuwari.huma-num.fr/corpus/tuwari/activityType/planningType/semi-spontaneous>,
+    <http://tuwari.huma-num.fr/corpus/tuwari/activityType/socialContext/family>;
+  rico:generalDescription "Session 1 Description";
+  rico:date "2021-09-09"^^xsd:date;
+  rico:hasOrHadParticipant <http://tuwari.huma-num.fr/corpus/tuwari/person/JD>;
+  rico:hasOrHadLocation <http://tuwari.huma-num.fr/corpus/tuwari/place/emplacement> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/activityType/genre/singing> a rico:ActivityType;
+  rico:name "singing" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/activityType/subGenre/Chant%20solo> a rico:ActivityType;
+  rico:name "Chant solo";
+  skos:broader <http://tuwari.huma-num.fr/corpus/tuwari/activityType/genre/singing> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/rule/access/O> a rico:Rule;
+  rico:name "O";
+  rico:isOrWasPartOf <http://tuwari.huma-num.fr/corpus/tuwari/rule/accessProtocol/PARADISEC> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/recordState/In_Progress> a rico:RecordState;
+  rico:name "In_Progress" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/concept/keyword/Keyword1> a rico:Concept;
+  rico:name "Keyword1" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/concept/keyword/keyword2> a rico:Concept;
+  rico:name "keyword2" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/concept/topic/Topic> a rico:Concept;
+  rico:name "Topic" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/session/Session1_ID/creation/1> a rico:CreationRelation;
+  rico:relationHasSource <http://tuwari.huma-num.fr/corpus/tuwari/session/Session1_ID>;
+  rico:relationHasTarget <http://tuwari.huma-num.fr/corpus/tuwari/person/JD>;
+  rico:creationWithRole <http://tuwari.huma-num.fr/corpus/tuwari/roleType/participant>;
+  rico:generalDescription "Com" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/roleType/participant> a rico:RoleType;
+  rico:name "participant" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/session/Session1_ID/creation/2> a rico:CreationRelation;
+  rico:relationHasSource <http://tuwari.huma-num.fr/corpus/tuwari/session/Session1_ID>;
+  rico:relationHasTarget <http://tuwari.huma-num.fr/corpus/tuwari/person/JD>;
+  rico:creationWithRole <http://tuwari.huma-num.fr/corpus/tuwari/roleType/consultant> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/roleType/consultant> a rico:RoleType;
+  rico:name "consultant" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/activityType/involvement/elicited> a rico:ActivityType;
+  rico:name "elicited" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/activityType/planningType/semi-spontaneous>
+  a rico:ActivityType;
+  rico:name "semi-spontaneous" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/activityType/socialContext/family> a rico:ActivityType;
+  rico:name "family" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/place/emplacement> a rico:Place;
+  rico:name "emplacement";
+  rico:location "emplacement";
+  rico:isOrWasPartOf <http://tuwari.huma-num.fr/corpus/tuwari/place/oceania> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/place/oceania> a rico:Place;
+  rico:name "oceania";
+  rico:isOrWasPartOf <http://tuwari.huma-num.fr/corpus/tuwari/place/Papua%20New%20Guinea> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/session/Session1_ID/record/131123_03_Source.WAV>
+  a rico:Record;
+  rico:title "131123_03_Source.WAV";
+  rico:hasOrHadDigitalInstantiation <http://tuwari.huma-num.fr/corpus/tuwari/session/Session1_ID/instantiation/131123_03_Source.WAV>;
+  rico:hasDocumentaryFormType <http://tuwari.huma-num.fr/corpus/tuwari/documentaryFormType/Source>;
+  rico:hasOrHadLanguage <http://tuwari.huma-num.fr/corpus/tuwari/language/tww>, <http://tuwari.huma-num.fr/corpus/tuwari/language/en> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/session/Session1_ID/instantiation/131123_03_Source.WAV>
+  a rico:Instantiation;
+  rico:title "131123_03_Source.WAV";
+  rico:identifier "Sessions/Session1_ID/131123_03_Source.WAV";
+  rico:isOrWasDigitalInstantiationOf <http://tuwari.huma-num.fr/corpus/tuwari/session/Session1_ID/record/131123_03_Source.WAV> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/documentaryFormType/Source> a rico:DocumentaryFormType;
+  rico:name "Source" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/session/Session1_ID/record/131123_03_Source.WAV/creation/1>
+  a rico:CreationRelation;
+  rico:relationHasSource <http://tuwari.huma-num.fr/corpus/tuwari/session/Session1_ID/record/131123_03_Source.WAV>;
+  rico:relationHasTarget <http://tuwari.huma-num.fr/corpus/tuwari/person/JD>;
+  rico:creationWithRole <http://tuwari.huma-num.fr/corpus/tuwari/roleType/participant> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/session/Session2_ID> a rico:RecordSet;
+  rico:hasRecordSetType ric-rst:File;
+  rico:documents <http://tuwari.huma-num.fr/corpus/tuwari/session/Session2_ID/activity>;
+  rico:identifier "Session2_ID";
+  rico:title "How to wash the marita";
+  rico:hasOrHadSomeMembersWithLanguage <http://tuwari.huma-num.fr/corpus/tuwari/language/tww>,
+    <http://tuwari.huma-num.fr/corpus/tuwari/language/en>;
+  rico:hasOrHadAllMembersWithRecordState <http://tuwari.huma-num.fr/corpus/tuwari/recordState/Incoming>;
+  rico:creationDate "2021-09-07"^^xsd:date .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/session/Session2_ID/activity> a rico:Activity;
+  rico:identifier "Session2_ID";
+  rico:name "How to wash the marita";
+  rico:date "2021-09-07"^^xsd:date;
+  rico:hasOrHadParticipant <http://tuwari.huma-num.fr/corpus/tuwari/person/JD>, <http://tuwari.huma-num.fr/corpus/tuwari/person/WD> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/recordState/Incoming> a rico:RecordState;
+  rico:name "Incoming" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/session/Session2_ID/creation/1> a rico:CreationRelation;
+  rico:relationHasSource <http://tuwari.huma-num.fr/corpus/tuwari/session/Session2_ID>;
+  rico:relationHasTarget <http://tuwari.huma-num.fr/corpus/tuwari/person/JD>;
+  rico:creationWithRole <http://tuwari.huma-num.fr/corpus/tuwari/roleType/participant> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/session/Session2_ID/creation/2> a rico:CreationRelation;
+  rico:relationHasSource <http://tuwari.huma-num.fr/corpus/tuwari/session/Session2_ID>;
+  rico:relationHasTarget <http://tuwari.huma-num.fr/corpus/tuwari/person/WD>;
+  rico:creationWithRole <http://tuwari.huma-num.fr/corpus/tuwari/roleType/participant> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/session/Session4> a rico:RecordSet;
+  rico:hasRecordSetType ric-rst:File;
+  rico:documents <http://tuwari.huma-num.fr/corpus/tuwari/session/Session4/activity>;
+  rico:identifier "Session4";
+  rico:title "public discussion about to young people misconduct";
+  rico:hasOrHadSomeMembersWithLanguage <http://tuwari.huma-num.fr/corpus/tuwari/language/tww>,
+    <http://tuwari.huma-num.fr/corpus/tuwari/language/en>;
+  rico:isOrWasRegulatedBy <http://tuwari.huma-num.fr/corpus/tuwari/rule/access/C>;
+  rico:hasOrHadAllMembersWithRecordState <http://tuwari.huma-num.fr/corpus/tuwari/recordState/Incoming>;
+  rico:creationDate "2021-09-23"^^xsd:date .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/session/Session4/activity> a rico:Activity;
+  rico:identifier "Session4";
+  rico:name "public discussion about to young people misconduct";
+  rico:hasActivityType <http://tuwari.huma-num.fr/corpus/tuwari/activityType/genre/oratory>;
+  rico:date "2021-09-23"^^xsd:date;
+  rico:hasOrHadParticipant <http://tuwari.huma-num.fr/corpus/tuwari/person/JD> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/activityType/genre/oratory> a rico:ActivityType;
+  rico:name "oratory" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/rule/access/C> a rico:Rule;
+  rico:name "C";
+  rico:isOrWasPartOf <http://tuwari.huma-num.fr/corpus/tuwari/rule/accessProtocol/PARADISEC> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/session/Session4/creation/1> a rico:CreationRelation;
+  rico:relationHasSource <http://tuwari.huma-num.fr/corpus/tuwari/session/Session4>;
+  rico:relationHasTarget <http://tuwari.huma-num.fr/corpus/tuwari/person/JD>;
+  rico:creationWithRole <http://tuwari.huma-num.fr/corpus/tuwari/roleType/participant> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/session/SessionID3> a rico:RecordSet;
+  rico:hasRecordSetType ric-rst:File;
+  rico:documents <http://tuwari.huma-num.fr/corpus/tuwari/session/SessionID3/activity>;
+  rico:identifier "SessionID3";
+  rico:title "Going to town";
+  rico:hasOrHadSomeMembersWithLanguage <http://tuwari.huma-num.fr/corpus/tuwari/language/tww>,
+    <http://tuwari.huma-num.fr/corpus/tuwari/language/en>;
+  rico:hasOrHadAllMembersWithRecordState <http://tuwari.huma-num.fr/corpus/tuwari/recordState/Finished>;
+  rico:creationDate "2021-09-16"^^xsd:date;
+  rico:hasOrHadSubject <http://tuwari.huma-num.fr/corpus/tuwari/concept/keyword/monologue>,
+    <http://tuwari.huma-num.fr/corpus/tuwari/concept/keyword/unstagged>;
+  rico:hasOrHadMainSubject <http://tuwari.huma-num.fr/corpus/tuwari/concept/topic/travel> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/session/SessionID3/activity> a rico:Activity;
+  rico:identifier "SessionID3";
+  rico:name "Going to town";
+  rico:hasActivityType <http://tuwari.huma-num.fr/corpus/tuwari/activityType/genre/narrative>;
+  rico:date "2021-09-16"^^xsd:date;
+  rico:hasOrHadParticipant <http://tuwari.huma-num.fr/corpus/tuwari/person/WD> .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/activityType/genre/narrative> a rico:ActivityType;
+  rico:name "narrative" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/recordState/Finished> a rico:RecordState;
+  rico:name "Finished" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/concept/keyword/monologue> a rico:Concept;
+  rico:name "monologue" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/concept/keyword/unstagged> a rico:Concept;
+  rico:name "unstagged" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/concept/topic/travel> a rico:Concept;
+  rico:name "travel" .
+
+<http://tuwari.huma-num.fr/corpus/tuwari/session/SessionID3/creation/1> a rico:CreationRelation;
+  rico:relationHasSource <http://tuwari.huma-num.fr/corpus/tuwari/session/SessionID3>;
+  rico:relationHasTarget <http://tuwari.huma-num.fr/corpus/tuwari/person/WD>;
+  rico:creationWithRole <http://tuwari.huma-num.fr/corpus/tuwari/roleType/participant> .
