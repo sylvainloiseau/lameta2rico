@@ -23,6 +23,14 @@
     <assertj.version>3.27.6</assertj.version>
   </properties>
 
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>sylvainloiseau</name>
+      <url>https://maven.pkg.github.com/sylvainloiseau/lameta2rico</url>
+    </repository>
+  </distributionManagement>
+
   <repositories>
     <repository>
       <id>github</id>
