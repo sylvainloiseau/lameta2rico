@@ -1,4 +1,4 @@
-# lameta2rdf
+# lameta2rico
 
 Converts a [SayMore/Lameta](https://github.com/onset/lameta) project directory into an RDF graph
 that uses [RiC-O 1.0.2](https://www.ica.org/standards/RiC/ontology) (Records in Contexts). This
@@ -25,13 +25,13 @@ Packages, which needs a token with `read:packages` in `~/.m2/settings.xml`:
 ```
 
 ```
-mvn verify      # build + tests; produces target/lameta2rdf-<version>-cli.jar (executable)
+mvn verify      # build + tests; produces target/lameta2rico-<version>-cli.jar (executable)
 ```
 
 ## Command line
 
 ```
-java -jar target/lameta2rdf-0.1.0-SNAPSHOT-cli.jar [-f FORMAT] [-p PREFIX]
+java -jar target/lameta2rico-0.1.0-SNAPSHOT-cli.jar [-f FORMAT] [-p PREFIX]
      [--include-contact-info] [--unmapped=description|drop] PROJECT_DIR OUTPUT_FILE
 ```
 
@@ -40,7 +40,7 @@ java -jar target/lameta2rdf-0.1.0-SNAPSHOT-cli.jar [-f FORMAT] [-p PREFIX]
   output file extension (`.rdf`/`.xml`/`.owl`, `.ttl`, `.nt`, `.nq`, `.trig`, `.trix`, `.n3`,
   `.jsonld`, `.rj`, `.brf`). Otherwise RDF/XML.
 - **`-p`**: corpus URI prefix used to mint IRIs, e.g. `http://tuwari.huma-num.fr/corpus/tuwari`.
-  Defaults to `urn:lameta2rdf:<project dir name>`, with a warning.
+  Defaults to `urn:lameta2rico:<project dir name>`, with a warning.
 - **`--include-contact-info`**: also export people's `howToContact` field (personal data; off
   by default).
 - **`--unmapped`**: fields with no RiC-O equivalent (custom fields, parents' languages,
@@ -51,7 +51,7 @@ Exit codes: 0 success, 1 conversion error, 2 usage error. The output file is wri
 atomically, so a failed run never leaves a partial file.
 
 ```
-java -jar target/lameta2rdf-0.1.0-SNAPSHOT-cli.jar -p http://tuwari.huma-num.fr/corpus/tuwari \
+java -jar target/lameta2rico-0.1.0-SNAPSHOT-cli.jar -p http://tuwari.huma-num.fr/corpus/tuwari \
      ~/Lameta/Tuwari tuwari.ttl
 ```
 
@@ -63,7 +63,7 @@ RdfConverter converter = RdfConverters.get("lameta").create(
         ConverterOptions.builder("http://tuwari.huma-num.fr/corpus/tuwari")
                 .set("unmapped", "drop")          // optional
                 .build());
-// or: new Lameta2RdfConverter(dir, options)
+// or: new Lameta2RicoConverter(dir, options)
 
 Model model = converter.toModel();                                    // in memory
 RdfOutput.write(converter, Path.of("tuwari.ttl"), RDFFormat.TURTLE);  // to a file
