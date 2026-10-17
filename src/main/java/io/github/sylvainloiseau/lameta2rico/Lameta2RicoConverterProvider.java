@@ -4,6 +4,7 @@ import java.nio.file.Path;
 import java.util.List;
 
 import fr.cnrs.lacito.ricimporterplugin.ConverterOptions;
+import fr.cnrs.lacito.ricimporterplugin.InputKind;
 import fr.cnrs.lacito.ricimporterplugin.OptionDescriptor;
 import fr.cnrs.lacito.ricimporterplugin.RdfConverter;
 import fr.cnrs.lacito.ricimporterplugin.RdfConverterProvider;
@@ -21,6 +22,12 @@ public class Lameta2RicoConverterProvider implements RdfConverterProvider {
     @Override
     public String description() {
         return "SayMore/Lameta project directory to RiC-O";
+    }
+
+    /** The input is the Lameta project directory, the one holding the {@code .sprj} file. */
+    @Override
+    public InputKind inputKind() {
+        return InputKind.DIRECTORY;
     }
 
     @Override

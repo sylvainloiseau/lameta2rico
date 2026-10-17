@@ -33,6 +33,7 @@ import io.github.sylvainloiseau.lameta2rico.vocabulary.RicoVocabularyTestAccess;
 import fr.cnrs.lacito.ricimporterplugin.ConverterOptions;
 import fr.cnrs.lacito.ricimporterplugin.RdfConversionException;
 import fr.cnrs.lacito.ricimporterplugin.RdfConverter;
+import fr.cnrs.lacito.ricimporterplugin.InputKind;
 import fr.cnrs.lacito.ricimporterplugin.RdfConverterProvider;
 import fr.cnrs.lacito.ricimporterplugin.RdfConverters;
 import fr.cnrs.lacito.ricimporterplugin.RepositoryLoader;
@@ -125,6 +126,7 @@ class Lameta2RicoConverterTest {
         RdfConverterProvider provider = RdfConverters.get("lameta");
         assertThat(provider).isInstanceOf(Lameta2RicoConverterProvider.class);
         assertThat(provider.options()).extracting(o -> o.name()).containsExactly("includeContactInfo", "unmapped");
+        assertThat(provider.inputKind()).isEqualTo(InputKind.DIRECTORY);
         RdfConverter c = provider.create(TestProjects.project("Test"), ConverterOptions.of(TestProjects.BASE));
         assertThat(Models.isomorphic(c.toModel(), TestProjects.expectedTestModel())).isTrue();
     }

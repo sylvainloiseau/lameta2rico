@@ -6,7 +6,7 @@ is the Java port of `parse_lameta.py` from rdf4lfd: the ad hoc `lameta:` vocabul
 by RiC-O, and the output goes through Eclipse RDF4J.
 
 The converter implements the [ricimporterplugin](https://github.com/sylvainloiseau/ricImporterPlugin)
-API (`RdfConverter`/`RdfConverterProvider`, name `"lameta"`). It can therefore be used from the
+API (`RdfConverter`/`RdfConverterProvider`, name `"lameta"`, input kind `DIRECTORY`). It can therefore be used from the
 command line, as a library, or loaded straight into an RDF4J triplestore.
 
 ## Build
