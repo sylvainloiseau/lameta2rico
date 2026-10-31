@@ -21,7 +21,7 @@ import picocli.CommandLine.Spec;
  * Command line: {@code lameta2rico [-f FORMAT] [-p PREFIX] <project dir> <output file>}.
  * Exit codes: 0 success, 1 conversion error, 2 usage error.
  */
-@Command(name = "lameta2rico", mixinStandardHelpOptions = true, version = "lameta2rico 0.1.0-SNAPSHOT",
+@Command(name = "lameta2rico", mixinStandardHelpOptions = true, versionProvider = Lameta2RicoCli.Version.class,
         description = "Converts a SayMore/Lameta project into a RiC-O RDF graph.",
         footer = {"", "The output format is taken from --format, else from the output file extension "
                 + "(.rdf/.xml/.owl, .ttl, .nt, .nq, .trig, .trix, .n3, .jsonld, .rj, .brf), else RDF/XML."})
@@ -85,6 +85,15 @@ public final class Lameta2RicoCli implements Callable<Integer> {
             return EXIT_CONVERSION_ERROR;
         });
         return cl.execute(args);
+    }
+
+    /** The version of the jar's manifest ({@code Implementation-Version}), "dev" when run from classes. */
+    static final class Version implements CommandLine.IVersionProvider {
+        @Override
+        public String[] getVersion() {
+            String v = Lameta2RicoCli.class.getPackage().getImplementationVersion();
+            return new String[] {"lameta2rico " + (v == null ? "dev" : v)};
+        }
     }
 
     public static void main(String[] args) {

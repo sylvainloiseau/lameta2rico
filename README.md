@@ -9,20 +9,24 @@ The converter implements the [ricimporterplugin](https://github.com/sylvainloise
 API (`RdfConverter`/`RdfConverterProvider`, name `"lameta"`, input kind `DIRECTORY`). It can therefore be used from the
 command line, as a library, or loaded straight into an RDF4J triplestore.
 
-## Build
+## Install
 
-Requires Java 17+ and Maven. The `ricimporterplugin` dependency is resolved from GitHub
-Packages, which needs a token with `read:packages` in `~/.m2/settings.xml`:
+The library is on Maven Central:
 
 ```xml
-<servers>
-  <server>
-    <id>github</id>
-    <username>YOUR_GITHUB_USER</username>
-    <password>YOUR_TOKEN</password>
-  </server>
-</servers>
+<dependency>
+  <groupId>io.github.sylvainloiseau</groupId>
+  <artifactId>lameta2rico</artifactId>
+  <version>0.1.0</version>
+</dependency>
 ```
+
+The command-line tool, a single jar with its dependencies (`lameta2rico-<version>-cli.jar`,
+Java 17), is attached to each [GitHub release](https://github.com/sylvainloiseau/lameta2rico/releases).
+
+## Build
+
+Requires Java 17+ and Maven.
 
 ```
 mvn verify      # build + tests; produces target/lameta2rico-<version>-cli.jar (executable)
@@ -96,3 +100,13 @@ Differences from the Python converter:
 - A `.sprj`/`.session`/`.person` file whose name does not match its folder is still found, if it is the only one.
 - Empty `.meta` files are ignored, with a warning.
 - Hidden files (editor swap files) are skipped.
+
+## Releasing
+
+Push a tag `vX.Y.Z`. `.github/workflows/release.yml` then publishes version `X.Y.Z` to Maven
+Central and attaches the CLI jar to the GitHub release. The workflow lists the repository
+secrets it needs.
+
+## License
+
+MIT.
